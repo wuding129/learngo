@@ -81,6 +81,58 @@ func triangle() {
 	fmt.Println(c)
 }
 
+
+// 常量
+// const数值可作为各种类型使用
+func consts() {
+	const filename = "abc.txt"
+	const a, b = 3, 4
+	var c int
+	c = int(math.Sqrt(a*a + b*b))
+	fmt.Println(filename, c)
+}
+
+// 枚举类型
+func enums() {
+	//const (
+	//	cpp = 0
+	//	java = 1
+	//	python = 2
+	//	goland = 3
+	//)
+
+	const (
+		// iota表示这组元素是自增值的
+		cpp = iota
+		// _ 表示占位，空，自增会跳过
+		_
+		java
+		python
+		goland
+	)
+
+	const (
+		// todo 查看<<
+		b = 1 << (10 * iota)
+		kb
+		mb
+		gb
+		tb
+		pb
+	)
+
+	fmt.Println(cpp, java, python, goland)
+	fmt.Println(b, kb, mb, gb, tb, pb)
+}
+
+/*
+总结：
+1、变量类型写在变量名之后
+2、编译器可推测变量类型
+3、没有char，只有rune
+4、原生支持复数类型
+*/
+
 func main() {
 	fmt.Println("hello world")
 	variableZeroValue()
@@ -91,4 +143,6 @@ func main() {
 
 	euler()
 	triangle()
+	consts()
+	enums()
 }
